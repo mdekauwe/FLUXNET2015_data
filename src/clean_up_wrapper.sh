@@ -5,8 +5,14 @@
 #
 # Martin De Kauwe, 19 APR 2017
 #
-
+FLUX_ZIP_DIR=raw_data_tier_1_zip
 FLUX_DIR=raw_data_tier_1
+
+if [ ! -d $FLUX_DIR ]
+then
+    mkdir $FLUX_DIR
+    cp $FLUX_ZIP_DIR/*.zip $FLUX_DIR/.
+fi
 
 # Unpack all the zip files and get rid of them for space reasons
 for i in $FLUX_DIR/*.zip
