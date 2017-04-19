@@ -8,6 +8,8 @@ need. NB. we are working with the full set here.
 ## Datasets
 
 * Eddy covariance dataset: [FLUXNET](http://fluxnet.fluxdata.org/data/fluxnet2015-dataset/)
+* Elevation data: [GTOPO30](http://www.geonames.org/export/ws-overview.html)
+
 
 ## Instructions
 
