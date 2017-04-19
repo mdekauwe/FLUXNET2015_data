@@ -26,13 +26,13 @@ def read_flux_file(fname):
     df['year'] = df.index.year
     df['doy'] = df.index.dayofyear
     df['hod'] = df.index.hour
-    
+
     return (df)
 
 if __name__ == "__main__":
 
     site = "AU-Tum"
-    fdir = "raw_data_tier_1"
+    fdir = "raw_data/fluxnet2015_tier_1"
     fname = "FLX_%s_FLUXNET2015_FULLSET_HR_*.csv" % (site)
     fname = glob.glob(os.path.join(fdir, fname))[0]
 
