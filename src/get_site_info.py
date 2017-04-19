@@ -27,15 +27,23 @@ def get_site_info(site):
     # return something nicer
     df = df[df.SITE_ID == site]
     d = {}
-    keys = ["COUNTRY", "IGBP", "LOCATION_LAT", "LOCATION_LONG"]
+    d['site'] = site
+    keys = ["COUNTRY", "IGBP", "LOCATION_LAT", "LOCATION_LONG", \
+            "MAT", "MAP", "LOCATION_ELEV"]
     for i in keys:
-        d[i] = df[df["VARIABLE"] == i].DATAVALUE.item()
+        try:
+            d[i] = df[df["VARIABLE"] == i].DATAVALUE.item()
+        except ValueError:
+            d[i] = -9999.9
 
     # clean up names
     d['country'] = d.pop('COUNTRY')
     d['pft'] = d.pop('IGBP')
     d['lat'] = d.pop('LOCATION_LAT')
     d['lon'] = d.pop('LOCATION_LONG')
+    d['mat'] = d.pop('MAT')
+    d['map'] = d.pop('MAP')
+    d['elev'] = d.pop('LOCATION_ELEV')
 
     return (d)
 
@@ -43,5 +51,8 @@ if __name__ == "__main__":
 
     site = "AU-Tum"
     d = get_site_info(site)
+    print(d)
 
+    site = "US-Ha1"
+    d = get_site_info(site)
     print(d)
