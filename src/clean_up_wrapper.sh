@@ -32,3 +32,9 @@ for i in $FLUX_DIR/*_AUXMETEO_*.csv
 do
     rm $i
 done
+
+# Remove all the AUXNEE files for space reasons
+for i in $FLUX_DIR/*_AUXNEE_*.csv
+do
+    rm $i
+done
