@@ -3,7 +3,7 @@
 ## Overview ##
 
 FLUXNET data repository, including scripts to get rid of the files we don't
-need.
+need. NB. we are working with the full set here.
 
 ## Datasets
 
@@ -11,7 +11,7 @@ need.
 
 ## Instructions
 
-To remove the stuff we don't want ... 
+To remove the stuff we don't want ...
 
 ```
 $ src/clean_up_wrapper.sh
