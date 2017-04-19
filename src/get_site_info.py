@@ -10,7 +10,7 @@ __email__ = "mdekauwe@gmail.com"
 
 import os
 import pandas as pd
-
+import requests
 
 def get_site_info(site):
 
@@ -34,7 +34,13 @@ def get_site_info(site):
         try:
             d[i] = df[df["VARIABLE"] == i].DATAVALUE.item()
         except ValueError:
-            d[i] = -9999.9
+            if i == "LOCATION_ELEV":
+                lat = df[df["VARIABLE"] == "LOCATION_LAT"].DATAVALUE.item()
+                lon = df[df["VARIABLE"] == "LOCATION_LONG"].DATAVALUE.item()
+                elev = get_missing_elevation(float(lat), float(lon))
+                d[i] = elev
+            else:
+                d[i] = -9999.9
 
     # clean up names
     d['country'] = d.pop('COUNTRY')
@@ -47,6 +53,16 @@ def get_site_info(site):
 
     return (d)
 
+def get_missing_elevation(lat, lon):
+    """ If the elevation is missing get it from the gtopo30 data """
+
+    url = ("http://api.geonames.org/gtopo30JSON?"
+           "lat=%f&lng=%f&username=mdekauwe" % (lat, lon))
+    r = requests.get(url)
+    elev = r.json()['gtopo30']
+
+    return elev
+    
 if __name__ == "__main__":
 
     site = "AU-Tum"

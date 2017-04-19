@@ -32,7 +32,7 @@ def read_flux_file(fname):
 if __name__ == "__main__":
 
     site = "AU-Tum"
-    fdir = "raw_data/fluxnet2015_tier_1"
+    fdir = "data/raw_data/fluxnet2015_tier_1"
     fname = "FLX_%s_FLUXNET2015_FULLSET_HR_*.csv" % (site)
     fname = glob.glob(os.path.join(fdir, fname))[0]
 
