@@ -23,7 +23,7 @@ Couple of example scripts
 
 ```
 $ python src/read_flux_file.py
-$ python src/get_site_info.py
+$ python src/get_site_info.py 
 ```
 
 
