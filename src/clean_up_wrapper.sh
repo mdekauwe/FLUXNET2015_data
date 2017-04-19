@@ -44,3 +44,26 @@ for i in $FLUX_DIR/*_AUXNEE_*.csv
 do
     rm $i
 done
+
+# Remove daily, weekly, monthly and yearly aggregates. This leaves
+# half-hourly (HH) & hourly (HR) files
+
+for i in $FLUX_DIR/*_YY_*.csv
+do
+    rm $i
+done
+
+for i in $FLUX_DIR/*_MM_*.csv
+do
+    rm $i
+done
+
+for i in $FLUX_DIR/*_WW_*.csv
+do
+    rm $i
+done
+
+for i in $FLUX_DIR/*_DD_*.csv
+do
+    rm $i
+done
