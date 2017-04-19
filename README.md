@@ -17,6 +17,14 @@ To remove the stuff we don't want ...
 $ src/clean_up_wrapper.sh
 ```
 
+Couple of example scripts
+
+```
+$ python src/read_flux_file.py
+$ python src/get_site_info.py
+```
+
+
 ## Contacts
 
 - Martin De Kauwe: mdekauwe at gmail.com
